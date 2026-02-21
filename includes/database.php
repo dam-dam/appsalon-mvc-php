@@ -1,10 +1,15 @@
 <?php
-
+    $host = $_ENV['DB_HOST'] ?? 'localhost';
+    $user = $_ENV['DB_USER'] ?? 'root';
+    $pass = $_ENV['DB_PASS'] ?? 'Mimi117117';
+    $name = $_ENV['DB_NAME'] ?? 'APPSALON';
+    $port = $_ENV['DB_PORT'] ?? 3306;
 $db = mysqli_connect(
-    $_ENV["DB_HOST"],
-    $_ENV["DB_USER"],
-    $_ENV["DB_PASS"], 
-    $_ENV["DB_NAME"]
+    $host,
+    $user,
+    $pass, 
+    $name,
+    $port
 );
 
 $db->set_charset("utf8");
