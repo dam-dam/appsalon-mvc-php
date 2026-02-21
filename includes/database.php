@@ -1,21 +1,19 @@
 <?php
 
-$host = $_ENV['DB_HOST'] ?? '127.0.0.1'; 
+// Usamos ?? para dar un valor por defecto si la variable de entorno falla
+$host = $_ENV['DB_HOST'] ?? 'mysql.railway.internal';
 $user = $_ENV['DB_USER'] ?? 'root';
-$pass = $_ENV['DB_PASS'] ?? 'Mimi117117';
-$name = $_ENV['DB_NAME'] ?? 'APPSALON';
+$pass = $_ENV['DB_PASS'] ?? 'OdsUxsqYyjLSWXSZOpFwxIIBpWyTUwad';
+$name = $_ENV['DB_NAME'] ?? 'railway';
 $port = $_ENV['DB_PORT'] ?? 3306;
 
-// El truco está en asegurar que el host y el puerto sean correctos
+// El orden es: host, user, password, database, port
 $db = mysqli_connect($host, $user, $pass, $name, $port);
-
-// ESTO ES NUEVO: Forzamos el set de caracteres
-if ($db) {
-    mysqli_set_charset($db, "utf8");
-}
 
 if (!$db) {
     echo "Error: No se pudo conectar a MySQL.";
     echo "error de depuración: " . mysqli_connect_error();
     exit;
 }
+
+$db->set_charset("utf8");
