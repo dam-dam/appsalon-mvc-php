@@ -3,7 +3,7 @@
     $user = $_ENV['DB_USER'] ?? 'root';
     $pass = $_ENV['DB_PASS'] ?? 'Mimi117117';
     $name = $_ENV['DB_NAME'] ?? 'APPSALON';
-    $port = $_ENV['DB_PORT'] ?? 3306;
+    $port =  21316;
 $db = mysqli_connect(
     $host,
     $user,
